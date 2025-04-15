@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: redia-deploy
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: redia-deploy
+  template:
+    metadata:
+      labels:
+        app: redia-deploy
+    spec:
+      containers:
+        - name: nextjs
+          image: {{ required "The conainer image for redia is required" .Values.redia.image }}
+          ports:
+            - containerPort: 3000
+          envFrom:
+            - secretRef:
+                name: redia-secret
+          imagePullPolicy: Always
+      imagePullSecrets:
+        - name: ecr-registry

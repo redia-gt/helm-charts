@@ -1,0 +1,8 @@
+redia:
+  image: 244680719765.dkr.ecr.us-east-2.amazonaws.com/redia/webpage:main
+  env:
+    emailHost: null
+    emailPass: null
+    emailPort: null
+    emailUser: null
+    domainName: "redia.codes"

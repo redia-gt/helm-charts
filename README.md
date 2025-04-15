@@ -1,1 +1,1 @@
-# helms
+# Redia helm charts
